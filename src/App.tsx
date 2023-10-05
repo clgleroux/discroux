@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { createUser, getUser } from './services/api';
 import { iUser } from './models/User';
-import ListUser from './components/ListUsers';
+import UsersList from './components/UsersList';
 import Profile from './components/Profile';
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
           ) : (
             <div className="w-80 h-[calc(100vh-80px)] overflow-scroll relative">
               <h1>Discroux</h1>
-              <ListUser users={users} onClick={onClickUser} />
+              <UsersList users={users} onClick={onClickUser} />
               <div className="fixed bottom-0 w-[inherit] ">
                 <Profile me={avatar} />
               </div>

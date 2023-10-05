@@ -6,7 +6,7 @@ type Props = {
   onClick: (user: iUser) => void;
 };
 
-const ListUser = ({ users, onClick }: Props) => {
+const UsersList = ({ users, onClick }: Props) => {
   return (
     <div>
       {users &&
@@ -23,4 +23,4 @@ const ListUser = ({ users, onClick }: Props) => {
   );
 };
 
-export default ListUser;
+export default UsersList;
