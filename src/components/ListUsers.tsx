@@ -8,7 +8,7 @@ type Props = {
 
 const ListUser = ({ users, onClick }: Props) => {
   return (
-    <>
+    <div>
       {users &&
         users.map(user => (
           <div key={user.id} className="my-2">
@@ -19,7 +19,7 @@ const ListUser = ({ users, onClick }: Props) => {
             />
           </div>
         ))}
-    </>
+    </div>
   );
 };
 
