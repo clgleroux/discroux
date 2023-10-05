@@ -12,6 +12,7 @@ type Props = {
 
 const Tchat = ({ user, avatar }: Props) => {
   const [messages, setMessages] = useState<iMessage[]>();
+  const [newMessage, setNewMessages] = useState<iMessage>();
 
   useEffect(() => {
     const fetchMessages = async () => {
@@ -21,13 +22,21 @@ const Tchat = ({ user, avatar }: Props) => {
     fetchMessages().then(() => {});
   }, [user]);
 
+  useEffect(() => {
+    if (messages && newMessage) {
+      setMessages([...messages, newMessage]);
+    } else if (newMessage) {
+      setMessages([newMessage]);
+    }
+  }, [newMessage]);
+
   return (
     <>
       {messages && (
-        <>
+        <div className="px-3">
           <MessagesList messages={messages} />
-          {/* <MessageNew /> */}
-        </>
+          <MessageNew setMessages={setNewMessages} avatar={avatar} />
+        </div>
       )}
     </>
   );

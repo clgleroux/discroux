@@ -12,8 +12,8 @@ const Message = ({ info }: Props) => {
           className={`flex ${
             info.user.id === 2812 ? 'flex-row-reverse' : ''
           } items-center gap-8`}>
-          <div>
-            <img src={info.user.avatar} className="h-16 rounded-full" />
+          <div className="contents">
+            <img src={info.user.avatar} className="h-16 w-16 rounded-full" />
           </div>
           <div>
             <div>
