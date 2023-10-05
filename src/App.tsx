@@ -4,14 +4,18 @@ import { createUser, getUser } from './services/api';
 import { iUser } from './models/User';
 import UsersList from './components/UsersList';
 import Profile from './components/Profile';
+import Tchat from './components/Tchat';
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [users, setUsers] = useState<iUser[]>([]);
   const [avatar, setAvatar] = useState<iUser | undefined>();
 
+  const [userSelected, setUserSelected] = useState<iUser | undefined>();
+
   const onClickUser = (user: iUser) => {
     console.log(user);
+    setUserSelected(user);
   };
 
   useEffect(() => {
@@ -28,7 +32,7 @@ function App() {
 
   return (
     <>
-      <div className="w-full flex items-center">
+      <div className="w-full flex">
         <div className="w-80">
           {isLoading ? (
             <div></div>
@@ -42,7 +46,11 @@ function App() {
             </div>
           )}
         </div>
-        <div className="w-4/6">Coucou</div>
+        {userSelected && avatar && (
+          <div className="w-4/6 h-screen overflow-scroll">
+            <Tchat user={userSelected} avatar={avatar} />
+          </div>
+        )}
       </div>
     </>
   );
