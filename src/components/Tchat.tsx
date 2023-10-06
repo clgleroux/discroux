@@ -4,6 +4,8 @@ import { getMessages } from '../services/api';
 import MessageNew from './MessageNew';
 import MessagesList from './MessagesList';
 import { iMessage } from '../models/Message';
+import UserPicture from './UserPicture';
+import { AiOutlineEnvironment } from 'react-icons/ai';
 
 type Props = {
   user: iUser;
@@ -47,14 +49,22 @@ const Tchat = ({ user, avatar }: Props) => {
       {messages && (
         <div className="flex flex-col w-full h-screen">
           <div className="flex items-center gap-5 py-3 shadow px-3">
-            <div className="w-10">
-              <img
-                src={user.avatar}
-                alt={`Profile ${user.name}`}
-                className="rounded-full"
-              />
+            <UserPicture
+              avatar={user.avatar}
+              name={user.name}
+              isOnline={user.isOnline}
+            />
+
+            <div className="flex items-center gap-3">
+              {user.name}
+              <a
+                href={`https://www.google.fr/maps/place/${user.country}`}
+                target="_blank"
+                className="flex items-center gap-1 bg-gray-200 hover:bg-gray-400 duration-200 rounded-full px-3 py-1 text-sm">
+                <AiOutlineEnvironment />
+                {user.country}
+              </a>
             </div>
-            <div>{user.name}</div>
           </div>
 
           <div className="flex-1 overflow-scroll px-3" ref={messagesRef}>
@@ -62,7 +72,11 @@ const Tchat = ({ user, avatar }: Props) => {
           </div>
 
           <div>
-            <MessageNew setMessages={setNewMessages} avatar={avatar} />
+            <MessageNew
+              setMessages={setNewMessages}
+              avatar={avatar}
+              messagesLength={messages.length}
+            />
           </div>
         </div>
       )}

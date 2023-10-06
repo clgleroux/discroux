@@ -3,4 +3,6 @@ export interface iUser {
   name: string;
   avatar: string;
   music: string;
+  isOnline: boolean;
+  country: string;
 }

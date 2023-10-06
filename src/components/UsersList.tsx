@@ -15,6 +15,7 @@ const UsersList = ({ users, onClick }: Props) => {
             <User
               avatar={user.avatar}
               name={user.name}
+              isOnline={user.isOnline}
               onClick={() => onClick(user)}
             />
           </div>

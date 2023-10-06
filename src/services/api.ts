@@ -10,6 +10,8 @@ export const createUser = (id: number) => ({
   name: faker.person.fullName(),
   avatar: faker.image.avatar(),
   music: faker.music.songName(),
+  isOnline: id === 2812 ? true : faker.datatype.boolean(),
+  country: faker.location.country(),
 });
 
 export const getUser = async () => {
