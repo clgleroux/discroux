@@ -1,6 +1,5 @@
 import { faker } from '@faker-js/faker';
 import { iUser } from '../models/User';
-import { iMessage } from '../models/Message';
 
 const delay = (time: number) => {
   return new Promise(resolve => setTimeout(resolve, time));
@@ -21,17 +20,32 @@ export const getUser = async () => {
   return array.map(createUser);
 };
 
-export const createMessage = (id: number, user: iUser, avatar: iUser) => ({
-  id,
-  text: faker.lorem.sentence(),
-  date: '2200',
-  user: faker.datatype.boolean() ? user : avatar,
-});
+export const createMessage = (
+  id: number,
+  user: iUser,
+  avatar: iUser,
+  previousDate: Date,
+  today: Date
+) => {
+  faker.date.between({ from: '', to: '' });
+  return {
+    id,
+    text: faker.lorem.sentence(),
+    date: faker.date.between({ from: previousDate, to: today }),
+    user: faker.datatype.boolean() ? user : avatar,
+  };
+};
 
 export const getMessages = async (user: iUser, avatar: iUser) => {
   const array = Array.from(Array(faker.number.int(100)).keys());
 
+  let previousDate = new Date('1999-12-28');
+
+  const today = new Date();
+
   return array.map((value: number, index: number) => {
-    return createMessage(index, user, avatar);
+    const message = createMessage(index, user, avatar, previousDate, today);
+    previousDate = message.date;
+    return message;
   });
 };

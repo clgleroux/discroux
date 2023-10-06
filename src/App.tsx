@@ -6,6 +6,8 @@ import UsersList from './components/UsersList';
 import Profile from './components/Profile';
 import Tchat from './components/Tchat';
 
+const USER_ID = 2812;
+
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [users, setUsers] = useState<iUser[]>([]);
@@ -23,7 +25,7 @@ function App() {
       setUsers(await getUser());
     };
 
-    setAvatar(createUser(2812));
+    setAvatar(createUser(USER_ID));
 
     fetchUsers().then(() => {
       setIsLoading(false);
@@ -33,7 +35,7 @@ function App() {
   return (
     <>
       <div className="w-full flex">
-        <div className="w-80">
+        <div className="w-80 shadow">
           {isLoading ? (
             <div></div>
           ) : (
@@ -47,7 +49,7 @@ function App() {
           )}
         </div>
         {userSelected && avatar && (
-          <div className="w-4/6 h-screen overflow-scroll">
+          <div className="w-[calc(100vw-20rem)] h-screen overflow-scroll">
             <Tchat user={userSelected} avatar={avatar} />
           </div>
         )}

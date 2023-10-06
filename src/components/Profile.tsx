@@ -15,9 +15,14 @@ const Profile = ({ me }: Props) => {
           </div>
           <div className="">
             <div className="font-medium truncate">{me.name}</div>
-            <div className="text-sm truncate italic flex gap-0.5 items-center">
-              <FcMusic />
-              {me.music}
+            <div className="text-sm truncate italic ">
+              <a
+                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                className="flex gap-0.5 items-center"
+                target="_blank">
+                <FcMusic />
+                {me.music}
+              </a>
             </div>
           </div>
         </div>
