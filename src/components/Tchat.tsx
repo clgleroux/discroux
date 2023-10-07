@@ -20,6 +20,8 @@ const Tchat = ({ user, avatar }: Props) => {
 
   const scrollToBottom = () => {
     if (messagesRef.current) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
       messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
     }
   };

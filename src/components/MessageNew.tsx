@@ -16,12 +16,14 @@ const MessageNew = ({ setMessages, avatar, messagesLength }: Props) => {
   const [input, setInput] = useState('');
 
   const handleOnClick = () => {
-    setMessages({
-      id: messagesLength,
-      text: input,
-      date: new Date(),
-      user: avatar,
-    });
+    if (input !== '') {
+      setMessages({
+        id: messagesLength,
+        text: input,
+        date: new Date(),
+        user: avatar,
+      });
+    }
 
     setInput('');
   };
