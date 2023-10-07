@@ -7,7 +7,7 @@ type Props = {
 
 const Message = ({ info }: Props) => {
   return (
-    <div className="duration-200 hover:bg-blue-50">
+    <div className="duration-200 hover:bg-hover">
       {info && (
         <div
           className={`flex ${
@@ -25,7 +25,7 @@ const Message = ({ info }: Props) => {
                 info.user.id === 2812 ? 'text-right' : 'text-left'
               }`}>
               <b>{info.user.name}</b>&nbsp;
-              <span className="text-sm italic">
+              <span className="text-sm text-accent italic">
                 {format(info.date, 'dd-MM-yyyy') ===
                 format(new Date(), 'dd-MM-yyyy')
                   ? "Aujourd'hui à " + format(new Date(), 'HH:mm')

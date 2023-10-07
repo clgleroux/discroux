@@ -48,7 +48,7 @@ const Tchat = ({ user, avatar }: Props) => {
     <>
       {messages && (
         <div className="flex flex-col w-full h-screen">
-          <div className="flex items-center gap-5 py-3 shadow px-3">
+          <div className="flex items-center gap-5 py-3 shadow-sm shadow-accent px-3 h-14 z-10">
             <UserPicture
               avatar={user.avatar}
               name={user.name}
@@ -60,7 +60,7 @@ const Tchat = ({ user, avatar }: Props) => {
               <a
                 href={`https://www.google.fr/maps/place/${user.country}`}
                 target="_blank"
-                className="flex items-center gap-1 bg-gray-200 hover:bg-gray-400 duration-200 rounded-full px-3 py-1 text-sm">
+                className="flex items-center gap-1 text-white bg-accent hover:bg-gray-700 duration-200 rounded-full px-3 py-1 text-sm">
                 <AiOutlineEnvironment />
                 {user.country}
               </a>

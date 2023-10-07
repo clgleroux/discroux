@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root {
+  --text: #070708;
+  --background: #ececef;
+  --background-light: #A1A0B2;
+  --primary: #a3a0b0;
+  --secondary: #cbcad3;
+  --accent: #615f72;
+  --hover: rgb(239 246 255);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #f7f7f8;
+    --background: #101013;
+    --background-light: #2E2E32;
+    --primary: #524f5f;
+    --secondary: #2d2c35;
+    --accent: #8f8da0;
+    --hover: rgb(60, 72, 87);
+  }
+}
+

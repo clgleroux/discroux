@@ -38,21 +38,21 @@ const MessageNew = ({ setMessages, avatar, messagesLength }: Props) => {
   useKeyDown(handleOnClick, KEYS);
 
   return (
-    <div className="bg-gray-50 w-full py-3 px-2 flex gap-5">
+    <div className="w-full py-3 px-2 flex gap-5">
       <input
         value={input}
         onInput={e => setInput(e.currentTarget.value)}
         placeholder="Send Message"
-        className="w-4/5 rounded-md p-2"></input>
+        className="w-4/5 rounded-md p-2 bg-background-light placeholder-gray-800 dark:placeholder-current"></input>
       <button
         onClick={handleOnGithub}
-        className="w-10 h-10 bg-gray-500 hover:bg-gray-700 duration-200 rounded-full flex justify-center items-center">
+        className="w-10 h-10 bg-accent hover:bg-gray-700 duration-200 rounded-full flex justify-center items-center">
         <AiOutlineGithub className="text-white" />
       </button>
       <button
         onClick={handleOnClick}
         disabled={input === ''}
-        className="w-10 h-10 bg-gray-500 disabled:bg-gray-100 hover:bg-gray-700 duration-200 rounded-full flex justify-center items-center">
+        className="w-10 h-10 bg-accent disabled:bg-gray-100 hover:bg-gray-700 duration-200 rounded-full flex justify-center items-center">
         <AiOutlineSend className="text-white" />
       </button>
     </div>
